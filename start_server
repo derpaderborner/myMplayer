@@ -1,0 +1,5 @@
+#!/bin/sh
+d=$PWD
+cd $(dirname $0)/htdocs/moep
+python ../../server.py $@
+cd $d
