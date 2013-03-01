@@ -4,16 +4,9 @@ from SocketServer import ThreadingMixIn
 from mplayer import MPlayer
 import os,sys
 
-mediasources = { "Serien":"/datengrab/serien/",
-		"Filme":"/datengrab/filme/",
-		"Audiobooks":"/datengrab/audiobooks/",
-		"Music":"/datengrab/music/"}
+mediasources = { "Music":"/media/hdd/music/"}
 exts = ['3gp','avi','divx','flv','m2ts','mkv','mp4','mpeg','mpg','mp3']
-# 192.168.178.101	q615
-# 192.168.178.105	n900
-# 192.168.178.106	mbpc
-# 192.168.178.107	mbtp
-allowed_ips = ['127.0.0.1','192.168.178.101','192.168.178.105','192.168.178.106','192.168.178.107']
+allowed_ips = ['127.0.0.1']
 
 class MyRequestHandler(SimpleJSONRPCRequestHandler,SimpleHTTPRequestHandler):
 	def do_POST(self):
@@ -60,7 +53,7 @@ def mfile(method,*args):
 	except AttributeError:
 		return "'%s' not found"%method
 
-ip = sys.argv[1] if len(sys.argv)>1 else "192.168.178.106"
+ip = sys.argv[1] if len(sys.argv)>1 else "127.0.0.1"
 port =  int(sys.argv[2]) if len(sys.argv)>2 else 1337
 
 srv = SimpleJSONRPCServer((ip, port),MyRequestHandler)
