@@ -1,7 +1,7 @@
 myMplayer
 ========
 
-myMplayer is a webinterface for mplayer. It's still in an early development stage.
+myMplayer is a JSON-RPC Server and a webinterface for mplayer. It's still in an early development stage.
 
 Requirements
 ============
